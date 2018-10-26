@@ -18,7 +18,8 @@ module.exports = {
     'Month Helpers',
     'Quarter Helpers',
     'Year Helpers',
-    'ISO Week-Numbering Year Helpers'
+    'ISO Week-Numbering Year Helpers',
+    'Decade Helpers'
   ],
 
   staticDocs: [
@@ -72,11 +73,27 @@ module.exports = {
     },
     {
       type: 'markdown',
+      urlId: 'webpack',
+      category: 'General',
+      title: 'webpack',
+      description: 'Using date-fns with webpack',
+      path: path.join(__dirname, 'webpack.md')
+    },
+    {
+      type: 'markdown',
       urlId: 'FP-Guide',
       category: 'General',
       title: 'FP Guide',
       description: 'Curried functions',
       path: path.join(__dirname, 'fp.md')
+    },
+    {
+      type: 'markdown',
+      urlId: 'Unicode-Tokens',
+      category: 'General',
+      title: 'Unicode Tokens',
+      description: 'Usage of the Unicode tokens in parse and format',
+      path: path.join(__dirname, 'unicodeTokens.md')
     },
     {
       type: 'markdown',
