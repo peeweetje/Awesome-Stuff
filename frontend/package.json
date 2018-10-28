@@ -59,7 +59,7 @@
       "^.+\\.js?$": "babel-jest"
     }
   },
-  "//": "This is our babel config, I prefer this over a .babelrc file",
+  "//": "This is the babel config, I prefer this over a .babelrc file",
   "babel": {
     "env": {
       "development": {
