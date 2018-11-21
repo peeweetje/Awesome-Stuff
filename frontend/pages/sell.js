@@ -1,6 +1,8 @@
+import CreateItems from "../components/CreateItems";
+
 const Sell = props => (
   <div>
-    <p>Sell!</p>
+    <CreateItems />
   </div>
 );
 
