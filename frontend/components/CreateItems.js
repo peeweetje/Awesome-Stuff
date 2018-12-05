@@ -4,6 +4,7 @@ import gql from "graphql-tag";
 import Form from "./styles/Form";
 import formatMoney from "../lib/formatMoney";
 import Error from "./ErrorMessage";
+import Router from "next/router";
 
 const CREATE_ITEM_MUTATION = gql`
   mutation CREATE_ITEM_MUTATION(
@@ -18,7 +19,7 @@ const CREATE_ITEM_MUTATION = gql`
       description: $description
       price: $price
       image: $image
-      largeImage: $Image
+      largeImage: $largeImage
     ) {
       id
     }
@@ -29,8 +30,8 @@ class CreateItems extends Component {
   state = {
     title: "Red dead redemption",
     description: "I love black ops 4",
-    image: "noah.jpg",
-    largeImage: "large-noah.jpg",
+    image: "https://fakeimg.pl/250x100/",
+    largeImage: "https://fakeimg.pl/350x200/?text=Hello",
     price: 175
   };
 
@@ -40,19 +41,62 @@ class CreateItems extends Component {
     this.setState({ [name]: val });
   };
 
+  // uploadFile = async e => {
+  //   console.log("Uploading file.....");
+  //   const files = e.target.files;
+  //   const data = newFormData();
+  //   data.append("file", files[0]);
+  //   data.append(
+  //     "https://unsplash.com",
+  //     "https://unsplash.com/photos/i4C3bFTAAZE"
+  //   );
+
+  //   const res = await fetch("https://unsplash.com", {
+  //     method: "Post",
+  //     body: data
+  //   });
+  //   const file = await res.json();
+  //   console.log(file);
+  //   this.setState({
+  //     image: file.secure_url,
+  //     largeImage: file.eager[0].secure_url
+  //   });
+  // };
+
   render() {
     return (
       <Mutation mutation={CREATE_ITEM_MUTATION} variables={this.state}>
         {(createItem, { loading, error }) => (
           <Form
             onSubmit={async e => {
+              // Stop the form from submitting
               e.preventDefault();
+              // Call th mutation
               const res = await createItem();
+              // Change them to the single item page
               console.log(res);
+              Router.push({
+                pathname: "/item",
+                query: { id: res.data.createItem.id }
+              });
             }}
           >
             <Error error={error} />
             <fieldset disabled={loading} aria-busy={loading}>
+              <label htmlFor="file">
+                Image
+                <input
+                  type="file"
+                  id="file"
+                  name="file"
+                  placeholder="Upload an image"
+                  required
+                  onChange={this.uploadFile}
+                />
+                {this.state.largeImage && (
+                  <img src={this.state.largeImage} alt="preview image" />
+                )}
+              </label>
               <label htmlFor="title">
                 Title
                 <input
