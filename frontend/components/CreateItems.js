@@ -30,8 +30,8 @@ class CreateItems extends Component {
   state = {
     title: "Red dead redemption",
     description: "I love black ops 4",
-    image: "https://fakeimg.pl/250x100/",
-    largeImage: "https://fakeimg.pl/350x200/?text=Hello",
+    image: "vos.jpg",
+    largeImage: "large-vos.jpg",
     price: 175
   };
 
@@ -41,27 +41,27 @@ class CreateItems extends Component {
     this.setState({ [name]: val });
   };
 
-  // uploadFile = async e => {
-  //   console.log("Uploading file.....");
-  //   const files = e.target.files;
-  //   const data = newFormData();
-  //   data.append("file", files[0]);
-  //   data.append(
-  //     "https://unsplash.com",
-  //     "https://unsplash.com/photos/i4C3bFTAAZE"
-  //   );
+  uploadFile = async e => {
+    console.log("Uploading file.....");
+    const files = e.target.files;
+    const data = new FormData();
+    data.append("file", files[0]);
+    data.append("upload_preset", "awesome-stuff");
 
-  //   const res = await fetch("https://unsplash.com", {
-  //     method: "Post",
-  //     body: data
-  //   });
-  //   const file = await res.json();
-  //   console.log(file);
-  //   this.setState({
-  //     image: file.secure_url,
-  //     largeImage: file.eager[0].secure_url
-  //   });
-  // };
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/peewee/image/upload",
+      {
+        method: "POST",
+        body: data
+      }
+    );
+    const file = await res.json();
+    console.log(file);
+    this.setState({
+      image: file.secure_url,
+      largeImage: file.eager[0].secure_url
+    });
+  };
 
   render() {
     return (
@@ -93,8 +93,8 @@ class CreateItems extends Component {
                   required
                   onChange={this.uploadFile}
                 />
-                {this.state.largeImage && (
-                  <img src={this.state.largeImage} alt="preview image" />
+                {this.state.image && (
+                  <img src={this.state.image} alt="preview image" />
                 )}
               </label>
               <label htmlFor="title">
