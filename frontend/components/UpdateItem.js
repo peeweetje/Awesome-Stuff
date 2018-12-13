@@ -19,24 +19,24 @@ const SINGLE_ITEM_QUERY = gql`
 
 const UPDATE_ITEM_MUTATION = gql`
   mutation UPDATE_ITEM_MUTATION(
-    $title: String!
-    $description: String!
-    $price: Int!
-    $image: String
-    $largeImage: String
+    $id: ID!
+    $title: String
+    $description: String
+    $price: Int
   ) {
-    createItem(
+    updateItem(
+      id: $id
       title: $title
       description: $description
       price: $price
-      image: $image
-      largeImage: $largeImage
     ) {
       id
+      title
+      description
+      price
     }
   }
 `;
-
 class UpdateItem extends Component {
   state = {};
 
@@ -44,6 +44,19 @@ class UpdateItem extends Component {
     const { name, type, value } = e.target;
     const val = type === "number" ? parseFloat(value) : value;
     this.setState({ [name]: val });
+  };
+
+  updateItem = async (e, updateItemMutation) => {
+    e.preventDefault();
+    console.log("updating item");
+    console.log(this.state);
+    const res = await updateItemMutation({
+      variables: {
+        id: this.props.id,
+        ...this.state
+      }
+    });
+    console.log("Updated!!");
   };
 
   render() {
@@ -56,23 +69,11 @@ class UpdateItem extends Component {
       >
         {({ data, loading }) => {
           if (loading) return <p> Loading...</p>;
+          if (!data.item) return <p>No Item found!</p>;
           return (
             <Mutation mutation={UPDATE_ITEM_MUTATION} variables={this.state}>
-              {(createItem, { loading, error }) => (
-                <Form
-                  onSubmit={async e => {
-                    // Stop the form from submitting
-                    e.preventDefault();
-                    // Call th mutation
-                    const res = await createItem();
-                    // Change them to the single item page
-                    console.log(res);
-                    Router.push({
-                      pathname: "/item",
-                      query: { id: res.data.createItem.id }
-                    });
-                  }}
-                >
+              {(updateItem, { loading, error }) => (
+                <Form onSubmit={e => this.updateItem(e, updateItem)}>
                   <Error error={error} />
                   <fieldset disabled={loading} aria-busy={loading}>
                     <label htmlFor="title">
