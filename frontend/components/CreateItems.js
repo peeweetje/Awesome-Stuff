@@ -90,7 +90,7 @@ class CreateItems extends Component {
                   id="file"
                   name="file"
                   placeholder="Upload an image"
-                  required
+                  //required
                   onChange={this.uploadFile}
                 />
                 {this.state.image && (
