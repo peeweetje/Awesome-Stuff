@@ -77,15 +77,14 @@ const Mutations = {
     if (!user) {
       throw new Error(`No user found with this email ${email}`);
     }
-    // check idf password is correct
+    // check id password is correct
     const valid = await bcrypt.compare(password, user.password);
     if (!valid) {
       throw new Error("Password is invalid");
     }
     // generate jwt token
-    // set jtw as a cookie on the response
     const token = jwt.sign({ userId: user.id }, process.env.APP_SECRET);
-    // set the cookie with token
+    // set jtw as a cookie on the response
     ctx.response.cookie("token", token, {
       httpOnly: true,
       maxAge: 1000 * 60 * 60 * 24 * 365 // 1 year cookie

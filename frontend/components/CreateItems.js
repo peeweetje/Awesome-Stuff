@@ -30,8 +30,8 @@ class CreateItems extends Component {
   state = {
     title: "Red dead redemption",
     description: "I love black ops 4",
-    image: "vos.jpg",
-    largeImage: "large-vos.jpg",
+    image: "",
+    largeImage: "",
     price: 175
   };
 
