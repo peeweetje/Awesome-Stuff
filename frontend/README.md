@@ -1,5 +1,9 @@
 # Advanced-React
 
-frontend
+Frontend
+
+npm run dev
+
+Backend
 
 npm run dev

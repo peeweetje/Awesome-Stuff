@@ -1,7 +1,7 @@
 import { Query, Mutation } from "react-apollo";
 import gql from "graphql-tag";
 import Table from "./styles/Table";
-import SickButton from "./styles/SickButton";
+import AwesomeButton from "./styles/AwesomeButton";
 import PropTypes from "prop-types";
 import Error from "./ErrorMessage";
 
@@ -131,13 +131,13 @@ class UserPermissions extends React.Component {
                 </td>
               ))}
               <td>
-                <SickButton
+                <AwesomeButton
                   type="button"
                   disabled={loading}
                   onClick={updatePermissions}
                 >
                   Updat{loading ? "ing" : "e"}
-                </SickButton>
+                </AwesomeButton>
               </td>
             </tr>
           </>
