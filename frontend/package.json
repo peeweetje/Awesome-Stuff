@@ -1,7 +1,7 @@
 {
   "name": "awesome-stuff-frontend",
   "version": "1.0.0",
-  "description": "Sick Fits! An example React, GraphQL, Next and Apollo",
+  "description": "awesome! An example React, GraphQL, Next and Apollo",
   "main": "index.js",
   "scripts": {
     "dev": "next -p 7777",
