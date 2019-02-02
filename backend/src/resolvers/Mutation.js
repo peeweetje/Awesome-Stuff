@@ -316,7 +316,6 @@ const Mutations = {
       delete orderItem.id;
       return orderItem;
     });
-
     // create the Order
     const order = await ctx.db.mutation.createOrder({
       data: {
