@@ -10,6 +10,7 @@ import CloseButton from "./styles/CloseButton";
 import AwesomeButton from "./styles/AwesomeButton";
 import formatMoney from "../lib/formatMoney";
 import calcTotalPrice from "../lib/calcTotalPrice";
+import TakeMyMoney from "./TakeMyMoney";
 
 const LOCAL_STATE_QUERY = gql`
   query {
@@ -54,7 +55,9 @@ const Cart = () => (
           </ul>
           <footer>
             <p>{formatMoney(calcTotalPrice(me.cart))}</p>
-            <AwesomeButton>Checkout</AwesomeButton>
+            <TakeMyMoney>
+              <AwesomeButton>Checkout</AwesomeButton>
+            </TakeMyMoney>
           </footer>
         </CartStyles>
       );
