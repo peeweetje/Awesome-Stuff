@@ -27,9 +27,9 @@ describe("<SingleItem/>", () => {
     expect(wrapper.text()).toContain("Loading...");
     await wait();
     wrapper.update();
-    // console.log(wrapper.debug());
+    //console.log(wrapper.debug());
     expect(toJSON(wrapper.find("h2"))).toMatchSnapshot();
-    //expect(toJSON(wrapper.find("img"))).toMatchSnapshot();
+    expect(toJSON(wrapper.find("img"))).toMatchSnapshot();
     expect(toJSON(wrapper.find("p"))).toMatchSnapshot();
   });
 
@@ -38,7 +38,12 @@ describe("<SingleItem/>", () => {
       {
         request: { query: SINGLE_ITEM_QUERY, variables: { id: "123" } },
         result: {
-          errors: [{ message: "Items Not Found!" }]
+          errors: [
+            {
+              message:
+                "Shoot!Network error: No more mocked responses for the query: query SINGLE_ITEM_QUERY($id: ID!)"
+            }
+          ]
         }
       }
     ];
@@ -51,7 +56,9 @@ describe("<SingleItem/>", () => {
     wrapper.update();
     console.log(wrapper.debug());
     const item = wrapper.find('[data-test="graphql-error"]');
-    expect(item.text()).toContain("Items Not Found!");
+    expect(item.text()).toContain(
+      "Shoot!Network error: No more mocked responses for the query: query SINGLE_ITEM_QUERY($id: ID!)"
+    );
     expect(toJSON(item)).toMatchSnapshot();
   });
 });
