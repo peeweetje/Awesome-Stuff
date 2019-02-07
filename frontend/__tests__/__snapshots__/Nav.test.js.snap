@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Nav/> renders a minimal nav when signed out 1`] = `null`;
+
+exports[`<Nav/> renders the amount of items in the cart 1`] = `null`;
