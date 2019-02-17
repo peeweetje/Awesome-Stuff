@@ -1,56 +1,56 @@
-import casual from 'casual';
+import casual from "casual";
 
 // seed it so we get consistent results
 casual.seed(777);
 
 const fakeItem = () => ({
-  __typename: 'Item',
-  id: 'abc123',
+  __typename: "Item",
+  id: "abc123",
   price: 5000,
   user: null,
-  image: 'dog-small.jpg',
-  title: 'dogs are best',
-  description: 'dogs',
-  largeImage: 'dog.jpg',
+  image: "vos.jpg",
+  title: "vos",
+  description: "vos",
+  largeImage: "vos.jpg"
 });
 
 const fakeUser = () => ({
-  __typename: 'User',
-  id: '4234',
+  __typename: "User",
+  id: "4234",
   name: casual.name,
   email: casual.email,
-  permissions: ['ADMIN'],
+  permissions: ["ADMIN"],
   orders: [],
-  cart: [],
+  cart: []
 });
 
 const fakeOrderItem = () => ({
-  __typename: 'OrderItem',
+  __typename: "OrderItem",
   id: casual.uuid,
   image: `${casual.word}.jpg`,
   title: casual.words(),
   price: 4234,
   quantity: 1,
-  description: casual.words(),
+  description: casual.words()
 });
 
 const fakeOrder = () => ({
-  __typename: 'Order',
-  id: 'ord123',
-  charge: 'ch_123',
+  __typename: "Order",
+  id: "ord123",
+  charge: "ch_123",
   total: 40000,
   items: [fakeOrderItem(), fakeOrderItem()],
-  createdAt: '2018-04 - 06T19: 24: 16.000Z',
-  user: fakeUser(),
+  createdAt: "2018-04 - 06T19: 24: 16.000Z",
+  user: fakeUser()
 });
 
 const fakeCartItem = overrides => ({
-  __typename: 'CartItem',
-  id: 'omg123',
+  __typename: "CartItem",
+  id: "omg123",
   quantity: 3,
   item: fakeItem(),
   user: fakeUser(),
-  ...overrides,
+  ...overrides
 });
 
 // Fake LocalStorage
@@ -82,5 +82,5 @@ export {
   fakeUser,
   fakeCartItem,
   fakeOrder,
-  fakeOrderItem,
+  fakeOrderItem
 };

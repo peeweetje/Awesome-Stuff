@@ -1,0 +1,159 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Signup/> renders and matches snapshot 1`] = `
+<form
+  className="Form-sc-191br5u-0 eXJRLn"
+  method="post"
+  onSubmit={[Function]}
+>
+  <fieldset>
+    <h2>
+      Sign up for an account
+    </h2>
+    <DisplayError
+      error={
+        Object {
+          "called": false,
+          "client": ApolloClient {
+            "__operations_cache__": Map {},
+            "cache": InMemoryCache {
+              "addTypename": true,
+              "cacheKeyRoot": CacheKeyNode {
+                "children": null,
+                "key": null,
+              },
+              "config": Object {
+                "addTypename": true,
+                "dataIdFromObject": [Function],
+                "fragmentMatcher": HeuristicFragmentMatcher {},
+              },
+              "data": DepTrackingCache {
+                "data": Object {},
+                "depend": [Function],
+              },
+              "maybeBroadcastWatch": [Function],
+              "optimistic": Array [],
+              "silenceBroadcast": false,
+              "storeReader": StoreReader {
+                "cacheKeyRoot": CacheKeyNode {
+                  "children": null,
+                  "key": null,
+                },
+                "executeSelectionSet": [Function],
+                "executeStoreQuery": [Function],
+                "keyMaker": QueryKeyMaker {
+                  "cacheKeyRoot": CacheKeyNode {
+                    "children": null,
+                    "key": null,
+                  },
+                  "perQueryKeyMakers": Map {},
+                },
+              },
+              "storeWriter": StoreWriter {},
+              "typenameDocumentCache": Map {},
+              "watches": Set {},
+            },
+            "defaultOptions": Object {},
+            "disableNetworkFetches": false,
+            "link": ApolloLink {
+              "request": [Function],
+            },
+            "mutate": [Function],
+            "query": [Function],
+            "queryDeduplication": true,
+            "reFetchObservableQueries": [Function],
+            "resetStore": [Function],
+            "resetStoreCallbacks": Array [],
+            "ssrMode": false,
+            "store": DataStore {
+              "cache": InMemoryCache {
+                "addTypename": true,
+                "cacheKeyRoot": CacheKeyNode {
+                  "children": null,
+                  "key": null,
+                },
+                "config": Object {
+                  "addTypename": true,
+                  "dataIdFromObject": [Function],
+                  "fragmentMatcher": HeuristicFragmentMatcher {},
+                },
+                "data": DepTrackingCache {
+                  "data": Object {},
+                  "depend": [Function],
+                },
+                "maybeBroadcastWatch": [Function],
+                "optimistic": Array [],
+                "silenceBroadcast": false,
+                "storeReader": StoreReader {
+                  "cacheKeyRoot": CacheKeyNode {
+                    "children": null,
+                    "key": null,
+                  },
+                  "executeSelectionSet": [Function],
+                  "executeStoreQuery": [Function],
+                  "keyMaker": QueryKeyMaker {
+                    "cacheKeyRoot": CacheKeyNode {
+                      "children": null,
+                      "key": null,
+                    },
+                    "perQueryKeyMakers": Map {},
+                  },
+                },
+                "storeWriter": StoreWriter {},
+                "typenameDocumentCache": Map {},
+                "watches": Set {},
+              },
+            },
+            "version": "2.4.4",
+            "watchQuery": [Function],
+          },
+          "data": undefined,
+          "error": undefined,
+          "loading": false,
+        }
+      }
+    />
+    <label
+      htmlFor="email"
+    >
+      Email
+      <input
+        name="email"
+        onChange={[Function]}
+        placeholder="email"
+        type="email"
+        value=""
+      />
+    </label>
+    <label
+      htmlFor="name"
+    >
+      Name
+      <input
+        name="name"
+        onChange={[Function]}
+        placeholder="name"
+        type="text"
+        value=""
+      />
+    </label>
+    <label
+      htmlFor="password"
+    >
+      Password
+      <input
+        name="password"
+        onChange={[Function]}
+        placeholder="password"
+        type="password"
+        value=""
+      />
+    </label>
+    <button
+      type="submit"
+    >
+      Sign up!
+    </button>
+  </fieldset>
+</form>
+`;
