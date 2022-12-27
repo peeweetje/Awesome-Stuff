@@ -43,7 +43,7 @@
     "casual": "^1.5.19",
     "enzyme-to-json": "^3.3.4",
     "graphql-tools": "^4.0.2",
-    "jest": "^23.6.0",
+    "jest": "^29.3.1",
     "jest-transform-graphql": "^2.1.0"
   },
   "jest": {
